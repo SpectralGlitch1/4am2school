@@ -5,10 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4am2</title>
   <style>
+    /* 🎨 Intégration de ta police personnalisée */
+    @font-face {
+      font-family: 'LitteSalty';
+      src: url('fonts/LitteSalty.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       margin: 0;
-      font-family: 'Poppins', sans-serif;
-      /* 🌈 Dégradé bleu → mauve en fond */
+      font-family: 'LitteSalty', sans-serif; /* 👈 police utilisée partout */
       background: linear-gradient(135deg, #0047ff, #b400ff);
       color: #111;
       min-height: 100vh;
@@ -25,7 +32,7 @@
 
     header h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: 2.5em;
       color: #00ffb7;
     }
 
@@ -37,7 +44,7 @@
 
     section {
       margin-bottom: 40px;
-      background: #fff; /* 👈 fenêtre blanche */
+      background: #fff;
       color: #111;
       padding: 25px;
       border-radius: 14px;
