@@ -15,7 +15,7 @@
 
     body {
       margin: 0;
-      font-family: 'LitteSalty', sans-serif; /* 👈 police utilisée partout */
+      font-family: 'LitteSalty', sans-serif;
       background: linear-gradient(135deg, #0047ff, #b400ff);
       color: #111;
       min-height: 100vh;
@@ -44,7 +44,7 @@
 
     section {
       margin-bottom: 40px;
-      background: #fff; /* Fenêtre blanche */
+      background: #fff;
       color: #111;
       padding: 25px;
       border-radius: 14px;
@@ -69,6 +69,22 @@
       color: #333;
     }
 
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      color: #111;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -90,153 +106,131 @@
     <section>
       <h2>Bienvenue</h2>
       <p>
-        salut bienvenue dans le site officiel de la classe 4am2 ici tu peut retrouver le programme scholaire , et tout les evenements de l'ecole.
+        Salut, bienvenue sur le site officiel de la classe 4am2 ! Ici tu peux retrouver le programme scolaire et tous les événements de l’école.
       </p>
     </section>
+
     <section>
-      <h2> Séance De TD cette semaine</h2>
+      <h2>Séance de TD cette semaine</h2>
       <p>
-        La Séance de TD cette semaine est <bold>Francais</bold>
+        La séance de TD cette semaine est <strong>Français</strong>.
       </p>
     </section>
-  </main>
+
     <section>
-  <h2>Programme scholaire.</h2>
-  <table border="1" cellpadding="5" cellspacing="0">
-    <thead>
-      <tr>
-        <th>Jour/heures</th>
-        <th>8h--9h</th>
-        <th>9h--10h</th>
-        <th>10h--11h</th>
-        <th>11h--12h</th>
-        <th>13h--14h</th>
-        <th>14h--15h</th>
-        <th>15h--16h</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Dimanche</td>
-        <td>Arabe</td>
-        <td>Maths</td>
-        <td>TD Arabe/Maths</td>
-        <td>TD Arabe/Maths</td>
-        <td>Francais</td>
-        <td>Science</td>
-        <td>Physique</td>
-      </tr>
-      <tr>
-        <td>Lundi</td>
-        <td>TP Physique/Science</td>
-        <td>TP Physique/Science</td>
-        <td>Maths</td>
-        <td>Francais</td>
-        <td>Histoire</td>
-        <td>Englais</td>
-        <td>Rattrapage Maths</td>
-      </tr>
-      </tr>
-        <td>Mardi</td>
-        <td>Sport</td>
-        <td>Sport</td>
-        <td>Arabe</td>
-        <td>Maths</td>
-        <td>-----</td>
-        <td>-----</td>
-        <td>-----</td>
-      </tr>
-      </tr>
-        <td>Mercredi</td>
-        <td>Englais</td>
-        <td>Arabe</td>
-        <td>Francais</td>
-        <td>Maths</td>
-        <td>Musique</td>
-        <td>Géographie</td>
-        <td>Rattrapage Arabe</td>
-      </tr>
-      </tr>
-        <td>Jeudi</td>
-        <td>Arabe</td>
-        <td>Islamique</td>
-        <td>Civile</td>
-        <td>Englais</td>
-        <td>TD Francais/Anglais</td>
-        <td>TD Francais/Anglais</td>
-        <td>Rattrapage Francais</td>
-      </tr>
-      <!-- ajoute le reste des lignes -->
-    </tbody>
-  </table>
-</section>
-  <section>
-  <h2>Le Programme Des évaluations SEMAINE 1</h2>
-  <table border="1" cellpadding="5" cellspacing="0">
-    <thead>
-      <tr>
-        <th>Jour/heures</th>
-        <th>11h--12h</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Dimanche</td>
-        <td>Francais</td>
-      </tr>
-      <tr>
-        <td>Lundi</td>
-        <td>Civile</td>
-      </tr>
-      </tr>
-        <td>Mardi</td>
-        <td>Rien</td>
-      </tr>
-      </tr>
-        <td>Mercredi</td>
-        <td>Arabe</td>
-      </tr>
-      </tr>
-        <td>Jeudi</td>
-        <td>Englais</td>
-      </tr>
-  <section>
-  <h2>Le Programme Des évaluations SEMAINE 2</h2>
-  <table border="1" cellpadding="5" cellspacing="0">
-    <thead>
-      <tr>
-        <th>Jour/heures</th>
-        <th>11h--12h</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Dimanche</td>
-        <td>Islamique</td>
-      </tr>
-      <tr>
-        <td>Lundi</td>
-        <td>HistoireGeo</td>
-      </tr>
-      </tr>
-        <td>Mardi</td>
-        <td>Maths</td>
-      </tr>
-      </tr>
-        <td>Mercredi</td>
-        <td>Science</td>
-      </tr>
-      </tr>
-        <td>Jeudi</td>
-        <td>Physique</td>
-      </tr>
-      <!-- ajoute le reste des lignes -->
-    </tbody>
-  </table>
-</section>
+      <h2>Programme scolaire</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
+            <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Dimanche</td>
+            <td>Arabe</td>
+            <td>Maths</td>
+            <td>TD Arabe/Maths</td>
+            <td>TD Arabe/Maths</td>
+            <td>Français</td>
+            <td>Science</td>
+            <td>Physique</td>
+          </tr>
+          <tr>
+            <td>Lundi</td>
+            <td>TP Physique/Science</td>
+            <td>TP Physique/Science</td>
+            <td>Maths</td>
+            <td>Français</td>
+            <td>Histoire</td>
+            <td>Anglais</td>
+            <td>Rattrapage Maths</td>
+          </tr>
+          <tr>
+            <td>Mardi</td>
+            <td>Sport</td>
+            <td>Sport</td>
+            <td>Arabe</td>
+            <td>Maths</td>
+            <td>—</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Mercredi</td>
+            <td>Anglais</td>
+            <td>Arabe</td>
+            <td>Français</td>
+            <td>Maths</td>
+            <td>Musique</td>
+            <td>Géographie</td>
+            <td>Rattrapage Arabe</td>
+          </tr>
+          <tr>
+            <td>Jeudi</td>
+            <td>Arabe</td>
+            <td>Islamique</td>
+            <td>Civique</td>
+            <td>Anglais</td>
+            <td>TD Français/Anglais</td>
+            <td>TD Français/Anglais</td>
+            <td>Rattrapage Français</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ✅ SEMAINE 1 -->
+    <section>
+      <h2>Programme des évaluations — Semaine 1</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>11h–12h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>Français</td></tr>
+          <tr><td>Lundi</td><td>Civique</td></tr>
+          <tr><td>Mardi</td><td>Rien</td></tr>
+          <tr><td>Mercredi</td><td>Arabe</td></tr>
+          <tr><td>Jeudi</td><td>Anglais</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ✅ SEMAINE 2 -->
+    <section>
+      <h2>Programme des évaluations — Semaine 2</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>11h–12h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>Islamique</td></tr>
+          <tr><td>Lundi</td><td>Histoire / Géographie</td></tr>
+          <tr><td>Mardi</td><td>Maths</td></tr>
+          <tr><td>Mercredi</td><td>Science</td></tr>
+          <tr><td>Jeudi</td><td>Physique</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
 
   <footer>
-    &copy; 2025 4am2 — Créé avec ❤️ Par SpectralGlitch
+    &copy; 2025 4am2 — Créé avec ❤️ par SpectralGlitch
   </footer>
 
 </body>
