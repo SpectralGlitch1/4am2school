@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4am2</title>
   <style>
-    /* 🎨 Intégration de la police LitteSalty */
+    /* 🎨 Police personnalisée */
     @font-face {
       font-family: 'LitteSalty';
       src: url('LitteSalty.otf') format('opentype');
@@ -13,8 +13,14 @@
       font-style: normal;
     }
 
-    body {
+    /* Reset et base */
+    * {
+      box-sizing: border-box;
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: 'LitteSalty', sans-serif;
       background: linear-gradient(135deg, #0047ff, #b400ff);
       color: #111;
@@ -31,61 +37,93 @@
     }
 
     header h1 {
-      margin: 0;
       font-size: 2.5em;
       color: #00ffb7;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #00f;
+      font-size: 1em;
     }
 
     main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+      width: 95%;       /* prend presque toute la largeur */
+      max-width: 1200px;
+      margin: 20px auto;
     }
 
     section {
-      margin-bottom: 40px;
+      width: 100%;
       background: #fff;
       color: #111;
-      padding: 25px;
+      padding: 20px;
       border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
       transition: transform 0.2s, box-shadow 0.2s;
-      width: 100%;
     }
 
     section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
     }
 
     h2 {
       color: #0047ff;
       border-bottom: 2px solid #b400ff;
       display: inline-block;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 1.5em;
     }
 
     p {
       line-height: 1.6;
       color: #333;
+      font-size: 1em;
     }
 
+    /* Tableaux responsives */
     table {
       width: 100%;
       border-collapse: collapse;
-      table-layout: fixed; /* Clé pour aligner toutes les colonnes */
+      table-layout: auto; /* colonnes adaptatives */
     }
 
     th, td {
       border: 1px solid #ddd;
-      text-align: center;
       padding: 8px;
-      word-wrap: break-word; /* Empêche les cellules de s'étirer trop */
+      text-align: center;
+      word-break: break-word;
+      font-size: 0.95em;
     }
 
     th {
       background-color: #f2f2f2;
       color: #111;
+    }
+
+    /* Media queries pour mobile */
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 0.9em;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 0.9em;
+      }
+      section {
+        padding: 15px;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      th, td {
+        font-size: 0.75em;
+        padding: 4px;
+      }
     }
 
     footer {
@@ -102,22 +140,19 @@
 
   <header>
     <h1>4am2</h1>
-    <p style="color: blue;">Site Officiel de la classe 4am2</p>
+    <p>Site Officiel de la classe 4am2</p>
   </header>
 
   <main>
+
     <section>
       <h2>Bienvenue</h2>
-      <p>
-        Salut, bienvenue sur le site officiel de la classe 4am2 ! Ici tu peux retrouver le programme scolaire et tous les événements de l’école.
-      </p>
+      <p>Salut, bienvenue sur le site officiel de la classe 4am2 ! Ici tu peux retrouver le programme scolaire et tous les événements de l’école.</p>
     </section>
 
     <section>
       <h2>Séance de TD cette semaine</h2>
-      <p>
-        La séance de TD cette semaine est <strong>Français</strong>.
-      </p>
+      <p>La séance de TD cette semaine est <strong>Français</strong>.</p>
     </section>
 
     <section>
@@ -136,56 +171,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Dimanche</td>
-            <td>Arabe</td>
-            <td>Maths</td>
-            <td>TD Arabe/Maths</td>
-            <td>TD Arabe/Maths</td>
-            <td>Français</td>
-            <td>Science</td>
-            <td>Physique</td>
-          </tr>
-          <tr>
-            <td>Lundi</td>
-            <td>TP Physique/Science</td>
-            <td>TP Physique/Science</td>
-            <td>Maths</td>
-            <td>Français</td>
-            <td>Histoire</td>
-            <td>Anglais</td>
-            <td>Rattrapage Maths</td>
-          </tr>
-          <tr>
-            <td>Mardi</td>
-            <td>Sport</td>
-            <td>Sport</td>
-            <td>Arabe</td>
-            <td>Maths</td>
-            <td>—</td>
-            <td>—</td>
-            <td>—</td>
-          </tr>
-          <tr>
-            <td>Mercredi</td>
-            <td>Anglais</td>
-            <td>Arabe</td>
-            <td>Français</td>
-            <td>Maths</td>
-            <td>Musique</td>
-            <td>Géographie</td>
-            <td>Rattrapage Arabe</td>
-          </tr>
-          <tr>
-            <td>Jeudi</td>
-            <td>Arabe</td>
-            <td>Islamique</td>
-            <td>Civique</td>
-            <td>Anglais</td>
-            <td>TD Français/Anglais</td>
-            <td>TD Français/Anglais</td>
-            <td>Rattrapage Français</td>
-          </tr>
+          <tr><td>Dimanche</td><td>Arabe</td><td>Maths</td><td>TD Arabe/Maths</td><td>TD Arabe/Maths</td><td>Français</td><td>Science</td><td>Physique</td></tr>
+          <tr><td>Lundi</td><td>TP Physique/Science</td><td>TP Physique/Science</td><td>Maths</td><td>Français</td><td>Histoire</td><td>Anglais</td><td>Rattrapage Maths</td></tr>
+          <tr><td>Mardi</td><td>Sport</td><td>Sport</td><td>Arabe</td><td>Maths</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>Anglais</td><td>Arabe</td><td>Français</td><td>Maths</td><td>Musique</td><td>Géographie</td><td>Rattrapage Arabe</td></tr>
+          <tr><td>Jeudi</td><td>Arabe</td><td>Islamique</td><td>Civique</td><td>Anglais</td><td>TD Français/Anglais</td><td>TD Français/Anglais</td><td>Rattrapage Français</td></tr>
         </tbody>
       </table>
     </section>
@@ -206,26 +196,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Dimanche</td>
-            <td>—</td><td>—</td><td>—</td><td>Français</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Lundi</td>
-            <td>—</td><td>—</td><td>—</td><td>Civique</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Mardi</td>
-            <td>—</td><td>—</td><td>—</td><td>Rien</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Mercredi</td>
-            <td>—</td><td>—</td><td>—</td><td>Arabe</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Jeudi</td>
-            <td>—</td><td>—</td><td>—</td><td>Anglais</td><td>—</td><td>—</td><td>—</td>
-          </tr>
+          <tr><td>Dimanche</td><td>—</td><td>—</td><td>—</td><td>Français</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Lundi</td><td>—</td><td>—</td><td>—</td><td>Civique</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mardi</td><td>—</td><td>—</td><td>—</td><td>Rien</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>—</td><td>—</td><td>—</td><td>Arabe</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Jeudi</td><td>—</td><td>—</td><td>—</td><td>Anglais</td><td>—</td><td>—</td><td>—</td></tr>
         </tbody>
       </table>
     </section>
@@ -246,26 +221,11 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Dimanche</td>
-            <td>—</td><td>—</td><td>—</td><td>Islamique</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Lundi</td>
-            <td>—</td><td>—</td><td>—</td><td>Histoire / Géographie</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Mardi</td>
-            <td>—</td><td>—</td><td>—</td><td>Maths</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Mercredi</td>
-            <td>—</td><td>—</td><td>—</td><td>Science</td><td>—</td><td>—</td><td>—</td>
-          </tr>
-          <tr>
-            <td>Jeudi</td>
-            <td>—</td><td>—</td><td>—</td><td>Physique</td><td>—</td><td>—</td><td>—</td>
-          </tr>
+          <tr><td>Dimanche</td><td>—</td><td>—</td><td>—</td><td>Islamique</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Lundi</td><td>—</td><td>—</td><td>—</td><td>Histoire / Géographie</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mardi</td><td>—</td><td>—</td><td>—</td><td>Maths</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>—</td><td>—</td><td>—</td><td>Science</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Jeudi</td><td>—</td><td>—</td><td>—</td><td>Physique</td><td>—</td><td>—</td><td>—</td></tr>
         </tbody>
       </table>
     </section>
