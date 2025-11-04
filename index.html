@@ -4,8 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>4am2</title>
-  <meta name="google-site-verification" content="y9SiTXLISc8i1AyqmsNvAtxRwI1iR_952mL3dWaA2K8" />
-
   <style>
     @font-face {
       font-family: 'LitteSalty';
@@ -14,6 +12,7 @@
       font-style: normal;
     }
 
+    /* Reset et base */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -83,6 +82,7 @@
       font-size: 1em;
     }
 
+    
     table {
       width: 100%;
       border-collapse: collapse;
@@ -102,6 +102,7 @@
       color: #111;
     }
 
+    
     @media screen and (max-width: 768px) {
       body {
         font-size: 0.9em;
@@ -132,60 +133,6 @@
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(6px);
     }
-
-    /* --- POPUP STYLE --- */
-    .popup-overlay {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 999;
-    }
-
-    .popup {
-      background: #fff;
-      border-radius: 16px;
-      padding: 25px;
-      text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-      max-width: 350px;
-      animation: fadeIn 0.4s ease;
-    }
-
-    .popup img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-bottom: 15px;
-    }
-
-    .popup h3 {
-      color: #0047ff;
-      margin-bottom: 10px;
-    }
-
-    .popup button {
-      background: linear-gradient(135deg, #0047ff, #b400ff);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-      margin-top: 10px;
-    }
-
-    .popup button:hover {
-      opacity: 0.85;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.9); }
-      to { opacity: 1; transform: scale(1); }
-    }
   </style>
 </head>
 <body>
@@ -196,6 +143,7 @@
   </header>
 
   <main>
+
     <section>
       <h2>Bienvenue</h2>
       <p>Salut, bienvenue sur le site officiel de la classe 4am2 ! Ici tu peux retrouver le programme scolaire et tous les événements de l’école.</p>
@@ -206,33 +154,86 @@
       <p>La séance de TD cette semaine est <strong>Français</strong>.</p>
     </section>
 
-    <!-- (Le reste de ton contenu inchangé) -->
+    <section>
+      <h2>Programme scolaire</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
+            <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>Arabe</td><td>Maths</td><td>TD Arabe/Maths</td><td>TD Arabe/Maths</td><td>Français</td><td>Science</td><td>Physique</td></tr>
+          <tr><td>Lundi</td><td>TP Physique/Science</td><td>TP Physique/Science</td><td>Maths</td><td>Français</td><td>Histoire</td><td>Anglais</td><td>Rattrapage Maths</td></tr>
+          <tr><td>Mardi</td><td>Sport</td><td>Sport</td><td>Arabe</td><td>Maths</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>Anglais</td><td>Arabe</td><td>Français</td><td>Maths</td><td>Musique</td><td>Géographie</td><td>Rattrapage Arabe</td></tr>
+          <tr><td>Jeudi</td><td>Arabe</td><td>Islamique</td><td>Civile</td><td>Anglais</td><td>TD Français/Anglais</td><td>TD Français/Anglais</td><td>Rattrapage Français</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Programme des évaluations — Semaine 1</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
+            <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>—</td><td>—</td><td>—</td><td>Français</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Lundi</td><td>—</td><td>—</td><td>—</td><td>Civile</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mardi</td><td>—</td><td>—</td><td>—</td><td>Rien</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>—</td><td>—</td><td>—</td><td>Arabe</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Jeudi</td><td>—</td><td>—</td><td>—</td><td>Anglais</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Programme des évaluations — Semaine 2</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
+            <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>—</td><td>—</td><td>—</td><td>Islamique</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Lundi</td><td>—</td><td>—</td><td>—</td><td>Histoire / Géographie</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mardi</td><td>—</td><td>—</td><td>—</td><td>Maths</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>—</td><td>—</td><td>—</td><td>Science</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Jeudi</td><td>—</td><td>—</td><td>—</td><td>Physique</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
   </main>
 
   <footer>
     &copy; 2025 4am2 — Créé avec ❤️ par SpectralGlitch
   </footer>
-
-  <!-- ===== POPUP ===== -->
-  <div class="popup-overlay" id="popup">
-    <div class="popup">
-      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Logo 4am2">
-      <h3>Bienvenue sur le site 4am2 🎉</h3>
-      <p>Ravi de te revoir ! Clique sur le bouton pour continuer.</p>
-      <button onclick="closePopup()">Entrer</button>
-    </div>
-  </div>
-
-  <script>
-    function closePopup() {
-      document.getElementById('popup').style.display = 'none';
-    }
-
-    // Option : ouvrir automatiquement au chargement
-    window.addEventListener('load', () => {
-      document.getElementById('popup').style.display = 'flex';
-    });
-  </script>
 
 </body>
 </html>
