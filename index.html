@@ -21,21 +21,9 @@
 
     body {
       font-family: 'LitteSalty', sans-serif;
-      /* Dégradé conique animé */
-      background: conic-gradient(from 0deg, #0047ff, #b400ff, #00ffb7, #0047ff);
-      animation: rotateBackground 10s linear infinite;
+      background: linear-gradient(135deg, #0047ff, #b400ff);
       color: #111;
       min-height: 100vh;
-      background-attachment: fixed;
-    }
-
-    @keyframes rotateBackground {
-      from {
-        background: conic-gradient(from 0deg, #0047ff, #b400ff, #00ffb7, #0047ff);
-      }
-      to {
-        background: conic-gradient(from 360deg, #0047ff, #b400ff, #00ffb7, #0047ff);
-      }
     }
 
     header {
@@ -94,6 +82,7 @@
       font-size: 1em;
     }
 
+    
     table {
       width: 100%;
       border-collapse: collapse;
@@ -113,6 +102,7 @@
       color: #111;
     }
 
+    
     @media screen and (max-width: 768px) {
       body {
         font-size: 0.9em;
