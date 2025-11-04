@@ -1,270 +1,120 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Programme — Classe 4AM2</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4am2</title>
   <style>
-    :root{--bg1:#3b82f6;--bg2:#7c3aed;--card-bg: rgba(255,255,255,0.88);--muted:#475569}
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial}
-    body{background: linear-gradient(135deg,var(--bg1), #6366f1 40%, var(--bg2));-webkit-font-smoothing:antialiased;color:#0f172a;padding:28px;box-sizing:border-box}
-    .wrap{max-width:1100px;margin:0 auto;background:var(--card-bg);backdrop-filter:blur(6px);border-radius:18px;padding:22px;box-shadow:0 10px 30px rgba(2,6,23,0.2)}
-    header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-    h1{margin:0;font-size:1.4rem}
-    p.lead{margin:6px 0 0;color:var(--muted);font-size:0.95rem}
-    .controls{display:flex;gap:8px;align-items:center}
-    button{cursor:pointer;border:0;padding:8px 12px;border-radius:8px;background:#eef2ff}
-    button.primary{background:linear-gradient(90deg,#4f46e5,#06b6d4);color:white}
-    button.ghost{background:transparent;border:1px solid rgba(15,23,42,0.08)}
-    main{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
-    .gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .card{background:white;border-radius:12px;overflow:hidden;box-shadow:0 6px 18px rgba(2,6,23,0.06);cursor:pointer;display:flex;flex-direction:column}
-    .card img{width:100%;height:140px;object-fit:cover;display:block}
-    .card .meta{padding:10px}
-    .card h3{margin:0;font-size:1rem}
-    .card p{margin:6px 0 0;font-size:0.85rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    .card .card-actions{margin-top:10px;display:flex;gap:8px}
-    .pane{background:white;border-radius:12px;padding:12px;height:100%;box-shadow:0 6px 18px rgba(2,6,23,0.06);display:flex;flex-direction:column}
-    .pane img{width:100%;height:160px;object-fit:cover;border-radius:8px}
-    .pane .title-row{display:flex;justify-content:space-between;align-items:center}
-    .muted{color:var(--muted)}
-    label{font-size:0.82rem;color:var(--muted);display:block;margin-top:8px}
-    input[type=text], textarea{width:100%;padding:8px;border-radius:8px;border:1px solid #e6e9ef;margin-top:6px}
-    textarea{resize:vertical}
-    .row{display:flex;gap:8px}
-    .footer{margin-top:14px;font-size:0.82rem;color:var(--muted)}
-    .admin-badge{background:#111827;color:white;padding:6px 8px;border-radius:8px;font-size:0.82rem}
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #0f0f0f;
+      color: #f5f5f5;
+    }
 
-    /* modal */
-    .modal-back{position:fixed;inset:0;background:rgba(2,6,23,0.45);display:flex;align-items:center;justify-content:center}
-    .modal{background:white;border-radius:10px;padding:18px;max-width:420px;width:96%;box-shadow:0 12px 40px rgba(2,6,23,0.4)}
+    header {
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
 
-    @media(max-width:900px){main{grid-template-columns:1fr} .gallery{grid-template-columns:repeat(2,1fr)} .pane{order:2}}
-    @media(max-width:520px){.gallery{grid-template-columns:1fr}} 
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      color: #00ffb7;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      color: #00ffb7;
+      border-bottom: 2px solid #00ffb7;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid #222;
+      color: #888;
+    }
+
+    a {
+      color: #00ffb7;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .button {
+      display: inline-block;
+      background: #00ffb7;
+      color: #111;
+      padding: 10px 18px;
+      border-radius: 6px;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+
+    .button:hover {
+      background: #00c992;
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div>
-        <h1>Programme — Classe 4AM2</h1>
-        <p class="lead">Clique sur une image pour ouvrir la fiche du sujet. Mode édition protégé par mot de passe.</p>
-      </div>
-      <div class="controls">
-        <button id="btnNew" class="primary" style="display:none">+ Nouveau</button>
-        <button id="btnReset" class="ghost" style="display:none">Réinitialiser</button>
-        <button id="btnAdmin" class="ghost">🔒 Connexion admin</button>
-        <button id="btnLogout" class="ghost" style="display:none">Se déconnecter</button>
-      </div>
-    </header>
 
-    <main>
-      <section>
-        <div id="gallery" class="gallery" aria-live="polite"></div>
-      </section>
+  <header>
+    <h1>4am2</h1>
+    <p>Le site officiel</p>
+  </header>
 
-      <aside class="pane" id="detailPane">
-        <div id="emptyState">
-          <h2>Aucune page ouverte</h2>
-          <p class="muted">Clique sur une image dans la galerie pour voir la fiche et la modifier (si tu es admin).</p>
-        </div>
+  <main>
+    <section>
+      <h2>Bienvenue</h2>
+      <p>
+        Voici le site 4am2. Tout le contenu est statique — il n’y a ni base de données, ni compte, ni admin.
+        Tu peux modifier directement ce fichier <code>index.html</code> pour changer le texte, les couleurs, ou le style.
+      </p>
+      <a href="#about" class="button">En savoir plus</a>
+    </section>
 
-        <div id="detail" style="display:none;flex:1;flex-direction:column;">
-          <div class="title-row">
-            <h2 id="detailTitle">Titre</h2>
-            <div>
-              <button id="btnEdit" class="ghost" style="display:none">Éditer</button>
-              <button id="btnDelete" style="display:none;background:#ef4444;color:white;border-radius:8px;padding:8px 10px">Suppr</button>
-            </div>
-          </div>
+    <section id="about">
+      <h2>À propos</h2>
+      <p>
+        4am2 est un projet simple, libre et modifiable par tous.
+        Le but est d’apprendre, d’expérimenter et de partager librement du contenu sans dépendre de serveurs.
+      </p>
+    </section>
 
-          <img id="detailImage" src="" alt="image sujet" style="margin-top:10px">
-          <div id="viewDescription" style="margin-top:10px;flex:1">
-            <p id="detailDesc" class="muted"></p>
-          </div>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Tu peux nous joindre à l’adresse :
+        <a href="mailto:contact@4am2.com">contact@4am2.com</a>
+      </p>
+    </section>
+  </main>
 
-          <form id="editForm" style="display:none;margin-top:8px;flex:1;flex-direction:column;">
-            <label>Titre</label>
-            <input id="inpTitle" type="text" />
-            <label>URL de l'image</label>
-            <input id="inpImage" type="text" />
-            <label>Description</label>
-            <textarea id="inpDesc" rows="5"></textarea>
+  <footer>
+    &copy; 2025 4am2 — Créé avec ❤️ en HTML pur.
+  </footer>
 
-            <div style="display:flex;gap:8px;margin-top:8px">
-              <button id="btnSave" class="primary" type="button">Enregistrer</button>
-              <button id="btnCancel" class="ghost" type="button">Annuler</button>
-            </div>
-          </form>
-
-          <div class="footer">Site statique — le mot de passe est stocké dans le fichier. Pour plus de sécurité, utilisez un vrai backend.</div>
-        </div>
-      </aside>
-    </main>
-  </div>
-
-  <!-- modal login -->
-  <div id="modal" style="display:none" class="modal-back">
-    <div class="modal">
-      <h3>Connexion admin</h3>
-      <p class="muted">Entre le mot de passe admin pour activer l'édition.</p>
-      <label style="margin-top:10px">Mot de passe</label>
-      <input id="adminPwd" type="password" style="width:100%;padding:8px;border-radius:8px;border:1px solid #e6e9ef;margin-top:6px"/>
-      <div style="display:flex;gap:8px;margin-top:12px;justify-content:flex-end">
-        <button id="modalCancel" class="ghost">Annuler</button>
-        <button id="modalOk" class="primary">Se connecter</button>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    // ----- CONFIG -----
-    // change this password before déploy (default below)
-    const ADMIN_PASSWORD = '12342301Azerty1342#81e+31#lebestevere+51';
-    const STORAGE_KEY = 'subjects_4am2_html';
-    const ADMIN_FLAG = 'isAdmin_4am2';
-
-    // Données par défaut
-    const DEFAULT_SUBJECTS = [
-      {id:'math', title:'Mathématiques', image:'https://picsum.photos/seed/math/800/600', description:'Algèbre, géométrie et exercices pour 4AM2.'},
-      {id:'fr', title:'Français', image:'https://picsum.photos/seed/fr/800/600', description:'Lecture, grammaire et expression écrite.'},
-      {id:'phy', title:'Physique', image:'https://picsum.photos/seed/phy/800/600', description:'Forces, énergie et petits TP.'},
-      {id:'prog', title:'Programme', image:'https://picsum.photos/seed/prog/800/600', description:"Le programme principal de la classe (emplois du temps, objectifs...)."},
-      {id:'hist', title:'Histoire', image:'https://picsum.photos/seed/hist/800/600', description:'Événements historiques et chronologie.'},
-      {id:'eng', title:'Anglais', image:'https://picsum.photos/seed/eng/800/600', description:'Vocabulaire et compréhension orale.'}
-    ];
-
-    let subjects = loadSubjects();
-    let current = null;
-
-    // DOM
-    const gallery = document.getElementById('gallery');
-    const btnNew = document.getElementById('btnNew');
-    const btnReset = document.getElementById('btnReset');
-    const btnAdmin = document.getElementById('btnAdmin');
-    const btnLogout = document.getElementById('btnLogout');
-    const modal = document.getElementById('modal');
-    const adminPwd = document.getElementById('adminPwd');
-    const modalOk = document.getElementById('modalOk');
-    const modalCancel = document.getElementById('modalCancel');
-
-    const emptyState = document.getElementById('emptyState');
-    const detail = document.getElementById('detail');
-    const detailTitle = document.getElementById('detailTitle');
-    const detailImage = document.getElementById('detailImage');
-    const detailDesc = document.getElementById('detailDesc');
-    const viewDescription = document.getElementById('viewDescription');
-
-    const btnEdit = document.getElementById('btnEdit');
-    const btnDelete = document.getElementById('btnDelete');
-    const editForm = document.getElementById('editForm');
-    const inpTitle = document.getElementById('inpTitle');
-    const inpImage = document.getElementById('inpImage');
-    const inpDesc = document.getElementById('inpDesc');
-    const btnSave = document.getElementById('btnSave');
-    const btnCancel = document.getElementById('btnCancel');
-
-    // init
-    renderGallery();
-    updateAdminUI(isAdmin());
-
-    // events
-    btnNew.addEventListener('click', () => {
-      const id = 'sub_' + Date.now();
-      const newSub = { id, title: 'Nouveau sujet', image: 'https://picsum.photos/seed/new' + Math.floor(Math.random()*9999) + '/800/600', description: 'Description...' };
-      subjects.unshift(newSub);
-      saveSubjects();
-      renderGallery();
-      openSubject(id);
-    });
-
-    btnReset.addEventListener('click', ()=>{
-      if(!confirm('Réinitialiser la liste de sujets ?')) return;
-      subjects = JSON.parse(JSON.stringify(DEFAULT_SUBJECTS));
-      saveSubjects();
-      renderGallery();
-      closeDetail();
-    });
-
-    btnAdmin.addEventListener('click', ()=>{ openModal(); });
-    btnLogout.addEventListener('click', ()=>{ logout(); });
-    modalCancel.addEventListener('click', ()=>{ closeModal(); });
-    modalOk.addEventListener('click', ()=>{ tryAdminLogin(); });
-    adminPwd.addEventListener('keypress', (e)=>{ if(e.key === 'Enter') tryAdminLogin(); });
-
-    btnEdit.addEventListener('click', ()=>{ setEditing(true); });
-    btnDelete.addEventListener('click', ()=>{ if(!current) return; if(!confirm('Supprimer ce sujet ?')) return; subjects = subjects.filter(s => s.id !== current.id); saveSubjects(); renderGallery(); closeDetail(); });
-    btnSave.addEventListener('click', ()=>{ if(!current) return; const t = inpTitle.value.trim() || 'Sans titre'; const im = inpImage.value.trim() || 'https://picsum.photos/seed/placeholder/800/600'; const d = inpDesc.value.trim() || ''; subjects = subjects.map(s => s.id === current.id ? {...s, title:t, image:im, description:d} : s); saveSubjects(); renderGallery(); openSubject(current.id); });
-    btnCancel.addEventListener('click', ()=>{ setEditing(false); });
-
-    function renderGallery(){
-      gallery.innerHTML = '';
-      subjects.forEach(s => {
-        const el = document.createElement('article');
-        el.className = 'card';
-        el.innerHTML = `
-          <img src="${escapeHtml(s.image)}" alt="${escapeHtml(s.title)}">
-          <div class=\"meta\">
-            <h3>${escapeHtml(s.title)}</h3>
-            <p>${escapeHtml(s.description)}</p>
-            <div class=\"card-actions\">
-              <button data-open=\"${s.id}\">Ouvrir</button>
-              <button data-del=\"${s.id}\" style=\"display:${isAdmin() ? 'inline-block' : 'none'}\">Suppr</button>
-            </div>
-          </div>
-        `;
-        gallery.appendChild(el);
-      });
-
-      gallery.querySelectorAll('[data-open]').forEach(b => b.addEventListener('click', (e)=>{ openSubject(e.target.getAttribute('data-open')); }));
-      gallery.querySelectorAll('[data-del]').forEach(b => b.addEventListener('click', (e)=>{
-        const id = e.target.getAttribute('data-del');
-        if(!confirm('Supprimer ce sujet ?')) return;
-        subjects = subjects.filter(s=>s.id!==id);
-        if(current && current.id===id) closeDetail();
-        saveSubjects(); renderGallery();
-      }));
-    }
-
-    function openSubject(id){
-      const s = subjects.find(x => x.id===id);
-      if(!s) return;
-      current = s;
-      emptyState.style.display = 'none';
-      detail.style.display = 'flex';
-      detailTitle.textContent = s.title;
-      detailImage.src = s.image;
-      detailDesc.textContent = s.description;
-      setEditing(false);
-    }
-
-    function closeDetail(){ current = null; emptyState.style.display = ''; detail.style.display = 'none'; }
-
-    function setEditing(flag){ if(!current) return; if(flag){ editForm.style.display = 'flex'; viewDescription.style.display = 'none'; inpTitle.value = current.title; inpImage.value = current.image; inpDesc.value = current.description; } else { editForm.style.display = 'none'; viewDescription.style.display = ''; } }
-
-    function loadSubjects(){ try{ const raw = localStorage.getItem(STORAGE_KEY); if(raw) return JSON.parse(raw); }catch(e){} return JSON.parse(JSON.stringify(DEFAULT_SUBJECTS)); }
-    function saveSubjects(){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(subjects)); }catch(e){console.warn(e)} }
-
-    function escapeHtml(str){ return String(str).replace(/[&<>\"']/g, function(m){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":"&#39;"}[m]}); }
-
-    // ----- admin helpers -----
-    function isAdmin(){ try{ return localStorage.getItem(ADMIN_FLAG) === '1'; }catch(e){return false} }
-    function updateAdminUI(flag){
-      // header buttons
-      btnNew.style.display = flag ? '' : 'none';
-      btnReset.style.display = flag ? '' : 'none';
-      btnLogout.style.display = flag ? '' : 'none';
-      btnAdmin.style.display = flag ? 'none' : '';
-      // detail actions
-      btnEdit.style.display = flag ? '' : 'none';
-      btnDelete.style.display = flag ? '' : 'none';
-      // gallery delete buttons updated on render
-      renderGallery();
-    }
-    function openModal(){ adminPwd.value=''; modal.style.display = 'flex'; adminPwd.focus(); }
-    function closeModal(){ modal.style.display = 'none'; }
-    function tryAdminLogin(){ const val = adminPwd.value || ''; if(val === ADMIN_PASSWORD){ try{ localStorage.setItem(ADMIN_FLAG,'1'); }catch(e){} updateAdminUI(true); closeModal(); alert('Mode admin activé. Tu peux maintenant modifier le contenu.'); } else { alert('Mot de passe incorrect.'); adminPwd.value=''; adminPwd.focus(); } }
-    function logout(){ try{ localStorage.removeItem(ADMIN_FLAG); }catch(e){} updateAdminUI(false); alert('Déconnecté.'); }
-  </script>
 </body>
 </html>
