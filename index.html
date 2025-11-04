@@ -50,6 +50,7 @@
       border-radius: 14px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
       transition: transform 0.2s, box-shadow 0.2s;
+      width: 100%;
     }
 
     section:hover {
@@ -72,12 +73,14 @@
     table {
       width: 100%;
       border-collapse: collapse;
+      table-layout: fixed; /* Clé pour aligner toutes les colonnes */
     }
 
     th, td {
       border: 1px solid #ddd;
       text-align: center;
       padding: 8px;
+      word-wrap: break-word; /* Empêche les cellules de s'étirer trop */
     }
 
     th {
@@ -187,42 +190,82 @@
       </table>
     </section>
 
-    <!-- ✅ SEMAINE 1 -->
     <section>
       <h2>Programme des évaluations — Semaine 1</h2>
       <table>
         <thead>
           <tr>
             <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
             <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Dimanche</td><td>Français</td></tr>
-          <tr><td>Lundi</td><td>Civique</td></tr>
-          <tr><td>Mardi</td><td>Rien</td></tr>
-          <tr><td>Mercredi</td><td>Arabe</td></tr>
-          <tr><td>Jeudi</td><td>Anglais</td></tr>
+          <tr>
+            <td>Dimanche</td>
+            <td>—</td><td>—</td><td>—</td><td>Français</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Lundi</td>
+            <td>—</td><td>—</td><td>—</td><td>Civique</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Mardi</td>
+            <td>—</td><td>—</td><td>—</td><td>Rien</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Mercredi</td>
+            <td>—</td><td>—</td><td>—</td><td>Arabe</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Jeudi</td>
+            <td>—</td><td>—</td><td>—</td><td>Anglais</td><td>—</td><td>—</td><td>—</td>
+          </tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ✅ SEMAINE 2 -->
     <section>
       <h2>Programme des évaluations — Semaine 2</h2>
       <table>
         <thead>
           <tr>
             <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
             <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td>Dimanche</td><td>Islamique</td></tr>
-          <tr><td>Lundi</td><td>Histoire / Géographie</td></tr>
-          <tr><td>Mardi</td><td>Maths</td></tr>
-          <tr><td>Mercredi</td><td>Science</td></tr>
-          <tr><td>Jeudi</td><td>Physique</td></tr>
+          <tr>
+            <td>Dimanche</td>
+            <td>—</td><td>—</td><td>—</td><td>Islamique</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Lundi</td>
+            <td>—</td><td>—</td><td>—</td><td>Histoire / Géographie</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Mardi</td>
+            <td>—</td><td>—</td><td>—</td><td>Maths</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Mercredi</td>
+            <td>—</td><td>—</td><td>—</td><td>Science</td><td>—</td><td>—</td><td>—</td>
+          </tr>
+          <tr>
+            <td>Jeudi</td>
+            <td>—</td><td>—</td><td>—</td><td>Physique</td><td>—</td><td>—</td><td>—</td>
+          </tr>
         </tbody>
       </table>
     </section>
