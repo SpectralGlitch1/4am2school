@@ -136,7 +136,7 @@
   </style>
 </head>
 <body>
-  <!-- Live Algeria Clock -->
+  <!-- Live Algeria Clock (No API Needed) -->
 <div id="clock" style="
   font-size: 3em;
   text-align: center;
@@ -151,36 +151,25 @@
   Loading...
 </div>
 
-<div id="timezone" style="text-align: center; color: #aaa;">Africa/Algiers</div>
+<div id="timezone" style="text-align: center; color: #aaa;">Africa/Algiers (UTC+1)</div>
 
 <script>
-  async function fetchTime() {
-    const response = await fetch('https://worldtimeapi.org/api/timezone/Africa/Algiers');
-    const data = await response.json();
-    return new Date(data.datetime);
+  function updateClock() {
+    const now = new Date();
+
+    // Convert to UTC, then add 1 hour for Algeria
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const algiersTime = new Date(utc + (3600000 * 1)); // UTC+1
+
+    const hours = algiersTime.getHours().toString().padStart(2, '0');
+    const minutes = algiersTime.getMinutes().toString().padStart(2, '0');
+    const seconds = algiersTime.getSeconds().toString().padStart(2, '0');
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
   }
 
-  let currentTime = null;
-
-  async function initClock() {
-    try {
-      currentTime = await fetchTime();
-      setInterval(() => {
-        currentTime.setSeconds(currentTime.getSeconds() + 1);
-        const hours = currentTime.getHours().toString().padStart(2, '0');
-        const minutes = currentTime.getMinutes().toString().padStart(2, '0');
-        const seconds = currentTime.getSeconds().toString().padStart(2, '0');
-        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-      }, 1000);
-    } catch (error) {
-      document.getElementById('clock').textContent = "Error loading time";
-      console.error('Clock error:', error);
-    }
-  }
-
-  initClock();
+  setInterval(updateClock, 1000);
+  updateClock();
 </script>
-
 
   <header>
     <h1>4am2</h1>
