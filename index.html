@@ -136,6 +136,51 @@
   </style>
 </head>
 <body>
+  <!-- Live Algeria Clock -->
+<div id="clock" style="
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 15px;
+  width: fit-content;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+">
+  Loading...
+</div>
+
+<div id="timezone" style="text-align: center; color: #aaa;">Africa/Algiers</div>
+
+<script>
+  async function fetchTime() {
+    const response = await fetch('https://worldtimeapi.org/api/timezone/Africa/Algiers');
+    const data = await response.json();
+    return new Date(data.datetime);
+  }
+
+  let currentTime = null;
+
+  async function initClock() {
+    try {
+      currentTime = await fetchTime();
+      setInterval(() => {
+        currentTime.setSeconds(currentTime.getSeconds() + 1);
+        const hours = currentTime.getHours().toString().padStart(2, '0');
+        const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+        const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+        document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+      }, 1000);
+    } catch (error) {
+      document.getElementById('clock').textContent = "Error loading time";
+      console.error('Clock error:', error);
+    }
+  }
+
+  initClock();
+</script>
+
 
   <header>
     <h1>4am2</h1>
