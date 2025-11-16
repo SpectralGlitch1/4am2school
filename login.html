@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accès</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      width: 250px;
+      text-align: center;
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      cursor: pointer;
+      background: #00ffb7;
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>Entrer le code</h2>
+    <input type="password" id="code">
+    <button onclick="login()">Valider</button>
+    <p id="error" style="color:red;display:none;">Code incorrect</p>
+  </div>
+
+<script>
+function login() {
+  let code = document.getElementById("code").value;
+
+  if (code === "4AM2") {  // <<<<<< CHANGE TON CODE ICI
+    window.location.href = "index.html"; // Redirige vers ton vrai site
+  } else {
+    document.getElementById("error").style.display = "block";
+  }
+}
+</script>
+
+</body>
+</html>
