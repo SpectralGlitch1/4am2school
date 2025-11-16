@@ -50,34 +50,35 @@
     <p class="error" id="err">Code incorrect</p>
   </div>
 
-  <script>
-    document.getElementById('ok').addEventListener('click', async function() {
-      const code = document.getElementById('code').value.trim();
-      try {
-        const response = await fetch('/api/check-code', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ code })
-        });
-        const data = await response.json();
+<script>
+  document.getElementById('ok').addEventListener('click', async function() {
+    const code = document.getElementById('code').value.trim();
+    try {
+      const response = await fetch('/api/check-code', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ code })
+      });
+      const data = await response.json();
 
-        if (data.ok) {
-          sessionStorage.setItem('authed', 'true');
-          location.replace('index.html');
-        } else {
-          document.getElementById('err').style.display = 'block';
-        }
-      } catch (error) {
-        console.error('Erreur lors de la vérification:', error);
-        alert("Erreur lors de la connexion au serveur.");
+      if (data.ok) {
+        localStorage.setItem('authed', 'true');
+        location.replace('index.html');
+      } else {
+        document.getElementById('err').style.display = 'block';
       }
-    });
-
-    if (sessionStorage.getItem('authed') === 'true') {
-      location.replace('index.html');
+    } catch (error) {
+      console.error('Erreur lors de la vérification:', error);
+      alert("Erreur lors de la connexion au serveur.");
     }
-  </script>
+  });
+
+  if (localStorage.getItem('authed') === 'true') {
+    location.replace('index.html');
+  }
+</script>
+
 </body>
 </html>
