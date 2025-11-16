@@ -53,22 +53,20 @@
 <script>
     const SECRET_CODE = "v9#Tq4R!z7uL2pX8sWmE";
 
+    // Si déjà connecté, rediriger directement
+    if (localStorage.getItem('authed') === 'true') {
+      location.replace('index.html');
+    }
+
     document.getElementById('ok').addEventListener('click', function () {
       const code = document.getElementById('code').value.trim();
       if (code === SECRET_CODE) {
-        sessionStorage.setItem('authed', 'true');
+        localStorage.setItem('authed', 'true'); // <-- Utilisation de localStorage au lieu de sessionStorage
         location.replace('index.html');
       } else {
         document.getElementById('err').style.display = 'block';
       }
     });
-
-    // If already authenticated, redirect automatically
-    if (sessionStorage.getItem('authed') === 'true') {
-      location.replace('index.html');
-    }
 </script>
-
-
 </body>
 </html>
