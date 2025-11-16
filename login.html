@@ -51,8 +51,23 @@
   </div>
 
 <script>
-  (function(){function _0x5b7f(_0x1a91e2,_0x2f9b63){_0x1a91e2=_0x1a91e2-0x1b7;var _0x5b7f62=_0x3c72[_0x1a91e2];return _0x5b7f62;}var _0x3c72=['replace','style','display','block','authed','getItem','true','setItem','index.html','value','trim','click','addEventListener','getElementById'];document[_0x5b7f(0x1c3)]('ok')[_0x5b7f(0x1c2)](_0x5b7f(0x1c1),function(){var _0x4bba2c=document[_0x5b7f(0x1c3)]('code')[_0x5b7f(0x1bf)]()[_0x5b7f(0x1c0)]();if(_0x4bba2c==="v9#Tq4R!z7uL2pX8sWmE"){sessionStorage[_0x5b7f(0x1ba)](_0x5b7f(0x1b9),_0x5b7f(0x1b8));location[_0x5b7f(0x1bd)](_0x5b7f(0x1b7));}else{document[_0x5b7f(0x1c3)]('err')[_0x5b7f(0x1bc)][_0x5b7f(0x1bb)]=_0x5b7f(0x1b8);}});if(sessionStorage[_0x5b7f(0x1b9)](_0x5b7f(0x1b9))===_0x5b7f(0x1b8)){location['replace'](_0x5b7f(0x1b7));}})();
+  document.getElementById('ok').addEventListener('click', function() {
+    const enteredCode = document.getElementById('code').value.trim();
+    const secretCode = "v9#Tq4R!z7uL2pX8sWmE"; // ← Mets ton code secret ici
+
+    if (enteredCode === secretCode) {
+      sessionStorage.setItem('authed', 'true');
+      location.replace('index.html');
+    } else {
+      document.getElementById('err').style.display = 'block';
+    }
+  });
+
+  if (sessionStorage.getItem('authed') === 'true') {
+    location.replace('index.html');
+  }
 </script>
+
 
 </body>
 </html>
