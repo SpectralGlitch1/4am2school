@@ -51,33 +51,7 @@
   </div>
 
 <script>
-  document.getElementById('ok').addEventListener('click', async function() {
-    const code = document.getElementById('code').value.trim();
-    try {
-      const response = await fetch('/api/check-code', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ code })
-      });
-      const data = await response.json();
-
-      if (data.ok) {
-        localStorage.setItem('authed', 'true');
-        location.replace('index.html');
-      } else {
-        document.getElementById('err').style.display = 'block';
-      }
-    } catch (error) {
-      console.error('Erreur lors de la vérification:', error);
-      alert("Erreur lors de la connexion au serveur.");
-    }
-  });
-
-  if (localStorage.getItem('authed') === 'true') {
-    location.replace('index.html');
-  }
+  (function(){function _0x5b7f(_0x1a91e2,_0x2f9b63){_0x1a91e2=_0x1a91e2-0x1b7;var _0x5b7f62=_0x3c72[_0x1a91e2];return _0x5b7f62;}var _0x3c72=['replace','style','display','block','authed','getItem','true','setItem','index.html','value','trim','click','addEventListener','getElementById'];document[_0x5b7f(0x1c3)]('ok')[_0x5b7f(0x1c2)](_0x5b7f(0x1c1),function(){var _0x4bba2c=document[_0x5b7f(0x1c3)]('code')[_0x5b7f(0x1bf)]()[_0x5b7f(0x1c0)]();if(_0x4bba2c==="v9#Tq4R!z7uL2pX8sWmE"){sessionStorage[_0x5b7f(0x1ba)](_0x5b7f(0x1b9),_0x5b7f(0x1b8));location[_0x5b7f(0x1bd)](_0x5b7f(0x1b7));}else{document[_0x5b7f(0x1c3)]('err')[_0x5b7f(0x1bc)][_0x5b7f(0x1bb)]=_0x5b7f(0x1b8);}});if(sessionStorage[_0x5b7f(0x1b9)](_0x5b7f(0x1b9))===_0x5b7f(0x1b8)){location['replace'](_0x5b7f(0x1b7));}})();
 </script>
 
 </body>
