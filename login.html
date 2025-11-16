@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
     body{
-      background: linear-gradient(135deg, #4f46e5, #a855f7); /* Bleu → Mauve */
+      background: linear-gradient(135deg, #4f46e5, #a855f7);
       color:#fff;
       font-family:Arial;
       margin:0;
@@ -51,13 +51,27 @@
   </div>
 
   <script>
-    document.getElementById('ok').addEventListener('click', function(){
+    document.getElementById('ok').addEventListener('click', async function() {
       const code = document.getElementById('code').value.trim();
-      if (code === "v9#Tq4R!z7uL2pX8sWmE") {
-        sessionStorage.setItem('authed', 'true');
-        location.replace('index.html');
-      } else {
-        document.getElementById('err').style.display = 'block';
+      try {
+        const response = await fetch('/api/check-code', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ code })
+        });
+        const data = await response.json();
+
+        if (data.ok) {
+          sessionStorage.setItem('authed', 'true');
+          location.replace('index.html');
+        } else {
+          document.getElementById('err').style.display = 'block';
+        }
+      } catch (error) {
+        console.error('Erreur lors de la vérification:', error);
+        alert("Erreur lors de la connexion au serveur.");
       }
     });
 
