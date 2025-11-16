@@ -1,60 +1,42 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Accès</title>
+  <meta charset="utf-8" />
+  <title>Accès sécurisé</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: Arial;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .box {
-      background: #222;
-      padding: 20px;
-      border-radius: 12px;
-      width: 250px;
-      text-align: center;
-    }
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border-radius: 8px;
-      border: none;
-    }
-    button {
-      cursor: pointer;
-      background: #00ffb7;
-      color: black;
-      font-weight: bold;
-    }
+    body{background:#111;color:#fff;font-family:Arial;margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
+    .box{background:#222;padding:20px;border-radius:10px;width:300px;text-align:center}
+    input,button{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:none}
+    button{cursor:pointer;background:#00ffb7;color:#000;font-weight:700}
+    p.error{color:#ff6b6b;display:none;margin-top:8px}
   </style>
 </head>
 <body>
-
   <div class="box">
     <h2>Entrer le code</h2>
-    <input type="password" id="code">
-    <button onclick="login()">Valider</button>
-    <p id="error" style="color:red;display:none;">Code incorrect</p>
+    <input id="code" type="password" placeholder="Code secret">
+    <button id="ok">Valider</button>
+    <p class="error" id="err">Code incorrect</p>
   </div>
 
-<script>
-function login() {
-  let code = document.getElementById("code").value;
+  <script>
+    document.getElementById('ok').addEventListener('click', function(){
+      const code = document.getElementById('code').value.trim();
+      // === CHANGE TON CODE ICI ===
+      if (code === "4AM2") {
+        // marque la session comme authentifiée puis retourne à index.html
+        sessionStorage.setItem('authed', 'true');
+        location.replace('index.html');
+      } else {
+        document.getElementById('err').style.display = 'block';
+      }
+    });
 
-  if (code === "v9#Tq4R!z7uL2pX8sWmE") {  // <<<<<< CHANGE TON CODE ICI
-    window.location.href = "index.html"; // Redirige vers ton vrai site
-  } else {
-    document.getElementById("error").style.display = "block";
-  }
-}
-</script>
-
+    // Optionnel : si on arrive sur login alors qu'on est déjà authed, renvoyer au site
+    if (sessionStorage.getItem('authed') === 'true') {
+      location.replace('index.html');
+    }
+  </script>
 </body>
 </html>
