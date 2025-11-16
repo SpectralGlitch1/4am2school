@@ -5,11 +5,41 @@
   <title>Accès</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    body{background:#111;color:#fff;font-family:Arial;margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
-    .box{background:#222;padding:20px;border-radius:10px;width:300px;text-align:center}
-    input,button{width:100%;padding:10px;margin-top:10px;border-radius:8px;border:none}
-    button{cursor:pointer;background:#00ffb7;color:#000;font-weight:700}
-    p.error{color:#ff6b6b;display:none;margin-top:8px}
+    body{
+      background: linear-gradient(135deg, #4f46e5, #a855f7); /* Bleu → Mauve */
+      color:#fff;
+      font-family:Arial;
+      margin:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:100vh
+    }
+    .box{
+      background:rgba(0,0,0,0.35);
+      padding:20px;
+      border-radius:10px;
+      width:300px;
+      text-align:center
+    }
+    input,button{
+      width:100%;
+      padding:10px;
+      margin-top:10px;
+      border-radius:8px;
+      border:none
+    }
+    button{
+      cursor:pointer;
+      background:#00ffb7;
+      color:#000;
+      font-weight:700
+    }
+    p.error{
+      color:#ff6b6b;
+      display:none;
+      margin-top:8px
+    }
   </style>
 </head>
 <body>
@@ -23,9 +53,7 @@
   <script>
     document.getElementById('ok').addEventListener('click', function(){
       const code = document.getElementById('code').value.trim();
-      // === CHANGE TON CODE ICI ===
       if (code === "v9#Tq4R!z7uL2pX8sWmE") {
-        // marque la session comme authentifiée puis retourne à index.html
         sessionStorage.setItem('authed', 'true');
         location.replace('index.html');
       } else {
@@ -33,7 +61,6 @@
       }
     });
 
-    // Optionnel : si on arrive sur login alors qu'on est déjà authed, renvoyer au site
     if (sessionStorage.getItem('authed') === 'true') {
       location.replace('index.html');
     }
