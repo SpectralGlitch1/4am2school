@@ -2,27 +2,8 @@
 <html lang="fr">
 <head>
   <script>
-document.getElementById('ok').addEventListener('click', async function(){
-  const code = document.getElementById('code').value.trim();
-
-  const res = await fetch('/api/check-code', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ code })
-  });
-
-  const data = await res.json();
-
-  if (data.ok) {
-    sessionStorage.setItem('authed', 'true');
-    location.replace('index.html');
-  } else {
-    document.getElementById('err').style.display = 'block';
-  }
-});
-
-if (sessionStorage.getItem('authed') === 'true') {
-  location.replace('index.html');
+if (!sessionStorage.getItem('authed')) {
+  location.replace('login.html');
 }
   </script>
 
