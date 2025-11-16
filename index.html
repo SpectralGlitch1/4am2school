@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <!-- --- START: protection par code (coller dans <head>) --- -->
+<script>
+  // Si l'utilisateur n'est pas "authed", on le redirige vers login.html
+  if (sessionStorage.getItem('authed') !== 'true') {
+    // évite boucle infinie si on est déjà sur login.html
+    if (!location.pathname.endsWith('login.html')) {
+      location.replace('login.html');
+    }
+  }
+</script>
+<!-- --- END: protection par code --- -->
+
   <link rel="icon" href="icone.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
