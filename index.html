@@ -1,16 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+  <script>
   <!-- --- START: protection par code (coller dans <head>) --- -->
-<script>
-  // Si l'utilisateur n'est pas "authed", on le redirige vers login.html
-  if (sessionStorage.getItem('authed') !== 'true') {
-    // évite boucle infinie si on est déjà sur login.html
-    if (!location.pathname.endsWith('login.html')) {
-      location.replace('login.html');
-    }
+document.getElementById('ok').addEventListener('click', async function(){
+  const code = document.getElementById('code').value.trim();
+
+  const res = await fetch('/api/check-code', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ code })
+  });
+
+  const data = await res.json();
+
+  if (data.ok) {
+    sessionStorage.setItem('authed', 'true');
+    location.replace('index.html');
+  } else {
+    document.getElementById('err').style.display = 'block';
   }
-</script>
+});
+
+if (sessionStorage.getItem('authed') === 'true') {
+  location.replace('index.html');
+}
+  </script>
+
 <!-- --- END: protection par code --- -->
 
   <link rel="icon" href="icone.ico" type="image/x-icon">
