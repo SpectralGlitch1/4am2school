@@ -142,11 +142,65 @@ if (!sessionStorage.getItem('authed')) {
       background: rgba(0, 0, 0, 0.4);
       backdrop-filter: blur(6px);
     }
+    /* Popup overlay */
+#popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Popup box */
+#popup-box {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  font-family: 'LitteSalty', sans-serif;
+  position: relative;
+  text-align: center;
+}
+
+/* Bouton fermer rouge */
+#popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+#popup-close:hover {
+  color: darkred;
+}
+
   </style>
 </head>
 <body>
-  
-  
+  <div id="popup-overlay">
+  <div id="popup-box">
+    <div id="popup-close">&times;</div>
+    <h2>Bienvenue sur 4am2 !</h2>
+    <p>Merci de visiter notre site. Clique sur la croix rouge pour fermer ce message.</p>
+  </div>
+</div>
+ <script>
+  const popupOverlay = document.getElementById('popup-overlay');
+  const popupClose = document.getElementById('popup-close');
+
+  popupClose.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+  });
+</script>
 
 <script>
   function updateClock() {
