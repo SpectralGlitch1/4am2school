@@ -1,1 +1,341 @@
-This Website Has Been DMCA'd strike takedown for breaking minecraft's guidelines and uploading fake images on the website's database to learn more about it go to https://www.minecraft.net/en-us/usage-guidelines
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <script>
+if (!sessionStorage.getItem('authed')) {
+  location.replace('login.html');
+}
+  </script>
+
+  <link rel="icon" href="icone.ico" type="image/x-icon">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4am2</title>
+  <style>
+    @font-face {
+      font-family: 'LitteSalty';
+      src: url('LitteSalty.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'LitteSalty', sans-serif;
+      background: linear-gradient(135deg, #0047ff, #b400ff);
+      color: #111;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #00ffb7;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #00f;
+      font-size: 1em;
+    }
+
+    main {
+      width: 95%;       
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    section {
+      width: 100%;
+      background: #fff;
+      color: #111;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #0047ff;
+      border-bottom: 2px solid #b400ff;
+      display: inline-block;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #333;
+      font-size: 1em;
+    }
+
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto; 
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+      word-break: break-word;
+      font-size: 0.95em;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      color: #111;
+    }
+
+    
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 0.9em;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 0.9em;
+      }
+      section {
+        padding: 15px;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      th, td {
+        font-size: 0.75em;
+        padding: 4px;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+    }
+
+#popup-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+
+#popup-box {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  font-family: 'LitteSalty', sans-serif;
+  position: relative;
+  text-align: center;
+}
+
+
+#popup-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 26px;
+  font-weight: bold;
+  color: red;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s;
+}
+
+#popup-close:hover {
+  color: darkred;
+}
+
+  </style>
+</head>
+<body>
+  <div id="popup-overlay">
+  <div id="popup-box">
+    <div id="popup-close">&times;</div>
+    <h2>Petite Info Pour Les Utilisateurs SmartPhones.</h2>
+    <p style="color: green;"><strong> Merci De  Retourner Votre Téléphone Horizontalement Pour Une Meilleur Experience.</strong> </p>
+    <img src="infmobsmartphone.png" style="width: 130px; height: auto;">
+  </div>
+</div>
+ <script>
+  const popupOverlay = document.getElementById('popup-overlay');
+  const popupClose = document.getElementById('popup-close');
+
+  popupClose.addEventListener('click', () => {
+    popupOverlay.style.display = 'none';
+  });
+</script>
+
+<script>
+  function updateClock() {
+    const now = new Date();
+
+    
+    const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+    const algiersTime = new Date(utc + (3600000 * 1)); // UTC+1
+
+    const hours = algiersTime.getHours().toString().padStart(2, '0');
+    const minutes = algiersTime.getMinutes().toString().padStart(2, '0');
+    const seconds = algiersTime.getSeconds().toString().padStart(2, '0');
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+  }
+
+  setInterval(updateClock, 1000);
+  updateClock();
+</script>
+
+  <header>
+    <h1><u>4am2</u></h1>
+    <img src="icone.ico" style="width: 100px; height: auto;">
+    <h3 style="color: #90EE90;">Le Site De Notre Classe.</h3>
+    <div id="clock" style="
+  font-size: 3em;
+  text-align: left;
+  color: #fff;
+  background: #0f172a;
+  padding: 20px;
+  border-radius: 15px;
+  width: fit-content;
+  margin: 40px auto;
+  font-family: 'Poppins', sans-serif;
+">
+  Loading...
+</div>
+<div id="timezone" style="text-align: center; color: #32CD32;"><strong>L'heure Live</strong></div>
+  </header>
+
+  <main>
+
+    <section>
+      <h2>Bienvenue :</h2>
+      <p>Salut, bienvenue dans le site 4am2 !!!</p>
+    </section>
+    
+    <section>
+      <h2 style="color: red;">événements (événement courant dans l'ecole) :</h2>
+      <p>1)èvaluation En Matiére d'Islamique Courant dans la <strong>Cette Semaine à Jeudi</strong></p>
+      <p>2) Ont va refaire l'èvaluation d'<strong style="color: red;">Arabe</strong> aprés tout les devoirs normeaux.</p>
+    </section>
+
+    <section>
+      <h2>Séance de TD cette semaine :</h2>
+      <p>La Séance de TD cette semaine est <strong style="color: #53CC0E;">Francais</strong>.</p>
+    </section>
+<!--programme scholaire de toute l'année-->
+    <section>
+      <h2>Programme scolaire :</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
+            <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>Arabe</td><td>Maths</td><td>TD Arabe/Maths</td><td>TD Arabe/Maths</td><td>Français</td><td>Science</td><td>Physique</td></tr>
+          <tr><td>Lundi</td><td>TP Physique/Science</td><td>TP Physique/Science</td><td>Maths</td><td>Français</td><td>Histoire</td><td>Anglais</td><td>Rattrapage Maths</td></tr>
+          <tr><td>Mardi</td><td>Sport</td><td>Sport</td><td>Arabe</td><td>Maths</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>Anglais</td><td>Arabe</td><td>Français</td><td>Maths</td><td>Musique</td><td>Géographie</td><td>Rattrapage Arabe</td></tr>
+          <tr><td>Jeudi</td><td>Arabe</td><td>Islamique</td><td>Civile</td><td>Anglais</td><td>TD Français/Anglais</td><td>TD Français/Anglais</td><td>Rattrapage Français</td></tr>
+        </tbody>
+      </table>
+    </section>
+      <!--Programme D'valuations à enlever quand on termine tout-->
+    <section>
+      <h2 style=" color: green">Programme des évaluations — Semaine 2 :</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
+            <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Lundi</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mardi</td><td>—</td><td>—</td><td>—</td><td style=" color: green;">Maths</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>—</td><td>—</td><td>—</td><td>Science + Composition de Musique</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Jeudi</td><td>—</td><td>—</td><td>—</td><td>Physique + Islamique</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+    <!-- FAIRE LE PROGRAMME QUAND LE PROGRAMME VIENT DANS L'ECOLE-->
+    <section>
+      <h2 style="color : #FFA500">Programme Des Compositions du 1er trimestre (Pas encore annoncée) : 00/00/0000</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Jour / Heures</th>
+            <th>8h–9h</th>
+            <th>9h–10h</th>
+            <th>10h–11h</th>
+            <th>11h–12h</th>
+            <th>13h–14h</th>
+            <th>14h–15h</th>
+            <th>15h–16h</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Dimanche</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Lundi</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mardi</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Mercredi</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+          <tr><td>Jeudi</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <footer>
+    &copy; 4am2.
+  </footer>
+
+</body>
+</html>
