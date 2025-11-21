@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4am2</title>
+  <link rel="icon" href="icone.ico" type="image/x-icon">
+
+  <script>
+    if (!sessionStorage.getItem('authed')) {
+      location.replace('login.html');
+    }
+  </script>
+
+  <style>
+    @font-face {
+      font-family: 'LitteSalty';
+      src: url('LitteSalty.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'LitteSalty', sans-serif;
+      background: linear-gradient(135deg, #0047ff, #b400ff);
+      color: #111;
+      min-height: 100vh;
+    }
+
+    header {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      color: #fff;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: #00ffb7;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      color: #00f;
+      font-size: 1em;
+    }
+
+    main {
+      width: 95%;
+      max-width: 1200px;
+      margin: 20px auto;
+    }
+
+    section {
+      width: 100%;
+      background: #fff;
+      color: #111;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+      color: #0047ff;
+      border-bottom: 2px solid #b400ff;
+      display: inline-block;
+      margin-bottom: 15px;
+      font-size: 1.5em;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #333;
+      font-size: 1em;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: auto;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
+      word-break: break-word;
+      font-size: 0.95em;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      color: #111;
+    }
+
+    @media screen and (max-width: 768px) {
+      body {
+        font-size: 0.9em;
+      }
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 0.9em;
+      }
+      section {
+        padding: 15px;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      th, td {
+        font-size: 0.75em;
+        padding: 4px;
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #fff;
+      background: rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(6px);
+    }
+
+    /* Popup */
+    #popup-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    #popup-box {
+      background: white;
+      padding: 25px 30px;
+      border-radius: 15px;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      font-family: 'LitteSalty', sans-serif;
+      position: relative;
+      text-align: center;
+    }
+
+    #popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 26px;
+      font-weight: bold;
+      color: red;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    #popup-close:hover {
+      color: darkred;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>4am2</h1>
+  <p>Bienvenue</p>
+</header>
+
+<main>
+  <section>
+    <h2>Titre</h2>
+    <p>Ton texte ici…</p>
+  </section>
+</main>
+
+<footer>
+  © 2025 — Tout droits réservés
+</footer>
+
+</body>
+</html>
