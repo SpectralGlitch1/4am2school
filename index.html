@@ -271,7 +271,7 @@
 
     <section>
       <h2>Séance de TD cette semaine :</h2>
-      <p>La Séance de TD cette semaine est <strong style="color: #53CC0E;"></strong>Anglais</p>
+      <p>La Séance de TD cette semaine est <strong style="color: #53CC0E;">Anglais</strong></p>
     </section>
 <!--programme scholaire de toute l'année-->
     <section>
@@ -308,7 +308,10 @@
     </section>
     <section>
       <h2> Liens Importants :</h2>
-      <button id="coolBtn" class="cool-btn">Site web du prof de physique pour copier ces lecons.</button>
+      <button class="cool-btn" data-url="https://sites.google.com/view/said-bouhamla/%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9-%D9%85%D8%AA%D9%88%D8%B3%D8%B7/%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA-4%D9%85">Site web du prof de physique pour copier ces leçons</button>
+      <button class="cool-btn" data-url="index.html">Home</button>
+      <button class="cool-btn" data-url="https://elgoog.com">About</button>
+      <button class="cool-btn" data-url="https://google.com">Google</button>
 
       <audio id="clickSound" src="FAHH.mp3" preload="auto"></audio>
 
@@ -320,21 +323,25 @@
   <footer>
     <h2 style="color : white;">4am2.</h2>
   </footer>
-  <script>
-  const button = document.getElementById("coolBtn");
+<script>
   const sound = document.getElementById("clickSound");
+  const buttons = document.querySelectorAll(".cool-btn");
 
-  if (button && sound) {
+  buttons.forEach(button => {
     button.addEventListener("click", () => {
+      const url = button.dataset.url;
+      if (!url) return;
+
       sound.currentTime = 0;
       sound.play().catch(() => {});
 
       setTimeout(() => {
-        window.location.href = "https://sites.google.com/view/said-bouhamla/%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9-%D9%85%D8%AA%D9%88%D8%B3%D8%B7/%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA-4%D9%85";
+        window.location.href = url;
       }, 500);
     });
-  }
+  });
 </script>
+
 
 </body>
 </html>
