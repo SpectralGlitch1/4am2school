@@ -174,6 +174,27 @@
 #popup-close:hover {
   color: darkred;
 }
+      .cool-btn {
+    padding: 16px 36px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .cool-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.5);
+  }
+
+  .cool-btn:active {
+    transform: scale(0.96);
+  }
 
   </style>
 </head>
@@ -287,7 +308,10 @@
     </section>
     <section>
       <h2> Liens Importants :</h2>
-      <p><a href="https://sites.google.com/view/said-bouhamla/%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9-%D9%85%D8%AA%D9%88%D8%B3%D8%B7/%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA-4%D9%85">Site Web pour Copier les Lecons du Prof de Physique.</a></p>
+      <button id="coolBtn" class="cool-btn">ENTER</button>
+
+      <audio id="clickSound" src="FAHH.mp3" preload="auto"></audio>
+
     </section>
     
 
@@ -296,5 +320,21 @@
   <footer>
     <h2 style="color : white;">4am2.</h2>
   </footer>
+  <script>
+  const button = document.getElementById("coolBtn");
+  const sound = document.getElementById("clickSound");
+
+  if (button && sound) {
+    button.addEventListener("click", () => {
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+
+      setTimeout(() => {
+        window.location.href = "https://sites.google.com/view/said-bouhamla/%D8%B1%D8%A7%D8%A8%D8%B9%D8%A9-%D9%85%D8%AA%D9%88%D8%B3%D8%B7/%D9%85%D8%B0%D9%83%D8%B1%D8%A7%D8%AA-4%D9%85";
+      }, 500);
+    });
+  }
+</script>
+
 </body>
 </html>
