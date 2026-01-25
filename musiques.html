@@ -177,13 +177,46 @@
 <header>
   <h1>4am2</h1>
   <p style=" color : green;">Le Site De Notre Classe.</p>
-  <img src="imgmag1.png" style="width: 300px; height: auto;">
 </header>
 
 <main>
 <section>
   <h2>Listes des meilleures musiques au monde.</h2>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=h_HoIE0l6VI">undertale : once upon a time.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=lNQ0pQpNfLs">undertale : hopes and dreams/last goodbye.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=oHZDWwW6iXs">undertale : The ruins.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=KK3KXAECte4">undertale : Megalovania.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=u5NqO2v_xnY">DRIVING IN MY CAR RIGHT AFTER A BEER.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=9kn9JgkzbUw">undertale : Call of void.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=0-pbkPm8oAg">Jazzy Juice.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=W-3DWBv0CvU">Its raining tacos !</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=CAb_bCtKuXg">La Vie Est Amusante.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=PKQPey6L42M">Da Coconut Song.</button></p>
+      <p><button class="cool-btn" data-url="https://www.youtube.com/watch?v=oDZK3_c-Vkc">Pigstep , AvM Resmastred.</button></p>
 </section>
+<footer>
+  <h2 style="color : white";>4am2.</h2>
+</footer>
 </main>
+  <audio id="clickSound" src="FAHH.mp3" preload="auto"></audio>
+<script>
+  const sound = document.getElementById("clickSound");
+  const buttons = document.querySelectorAll(".cool-btn");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const url = button.dataset.url;
+      if (!url) return;
+
+      sound.currentTime = 0;
+      sound.play().catch(() => {});
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 500);
+    });
+  });
+</script>
+
 </body>
 </html>
